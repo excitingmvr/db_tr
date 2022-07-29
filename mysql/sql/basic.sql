@@ -5,8 +5,16 @@ USE coffee;
 -- 테이블 수정 전에 항상 꼭 반드시 진짜로 ER 부터 수정
 -- 중요 별 백개 ****************************
 
+-- workbench update option 변경
+-- Edit > Preferences > sql editor > Safe Updates: uncheck
+
+-- INSERT
+
+-- 개별 컴럼 조회
+SELECT name FROM member;
+
 -- 전체 컴럼 조회
-SELECT * fROM member;
+SELECT * FROM member;
 
 -- 컬럼 추가
 ALTER TABLE member ADD COLUMN nickname varchar(45);
@@ -36,7 +44,31 @@ UPDATE member SET
 	, nameEng="Great"
 where seq =1;
 
+-- where
 
+SELECT * FROM member 
+WHERE 1=1
+-- AND name like 'To%'
+-- AND name like '%ny'
+AND name like '%ny%'
+;
 
+SELECT * FROM member 
+WHERE 1=1
+-- AND delNy = 0
+-- AND delNy > 1
+-- AND delNy >= 1
+AND delNy between 0 and 1
+;
 
+SELECT * FROM member 
+WHERE 1=1
+AND nameEng is null
+-- AND nameEng = null
+;
+
+SELECT * FROM member 
+WHERE 1=1
+AND nameEng = ""
+;
 
